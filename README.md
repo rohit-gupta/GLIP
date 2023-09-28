@@ -67,6 +67,29 @@ pip install transformers
 python setup.py build develop --user
 ```
 
+***Installation without Docker***
+
+Install right versions of pytorch, cuda and gcc
+
+```conda create -n glip python=3.8
+conda activate glip
+conda install pytorch==1.9.1 torchvision==0.10.1 torchaudio==0.9.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+conda install cuda -c nvidia/label/cuda-11.3.1
+conda install gcc=10.4.0 -c conda-forge
+conda install gxx=10.4.0 -c conda-forge
+```
+Install python dependencies:
+
+```pip install einops shapely timm yacs tensorboardX ftfy prettytable pymongo
+pip install transformers==4.29.2 safetensors==0.3.0
+pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
+pip install opencv-python```
+
+Build the package:
+
+```python setup.py build develop --user```
+
+
 ***Backbone Checkpoints.*** Download the ImageNet pre-trained backbone checkpoints into the ``MODEL`` folder. 
 ```
 mkdir MODEL
